@@ -1,7 +1,20 @@
-<h1>Ruby on Rails Tutorial Sample App | Home</h1>
+<div class="container">
 
-<p>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-</p>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>Welcome to the Sample App</h1>
+        <h2>
+            This is the home page for the
+            <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+            sample application.
+        </h2>
+        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+
+
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+
+    </div>
+
+</div> <!-- /container -->
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
