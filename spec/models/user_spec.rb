@@ -2,24 +2,34 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: "Example User", email: "usEr@example.com", password: "foobar", password_confirmation: "foobar")
+  end
+
+  after do
+    User.delete_all()
   end
 
   subject { @user }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:email) }
-  it { should respond_to(:password_digest) }
-  it { should respond_to(:password) }
-  it { should respond_to(:password_confirmation) }
-  it { should respond_to(:authenticate)}
+  describe "user should respond to all standard fields" do
+    it { should respond_to(:name) }
+    it { should respond_to(:email) }
+    it { should respond_to(:password_digest) }
+    it { should respond_to(:password) }
+    it { should respond_to(:password_confirmation) }
+    it { should respond_to(:authenticate)}
+  end
 
-  #it {
-  #  @user.email.should equal("user@example.com")
-  #}
+  describe "after save email should be lowercased" do
+    it {
+      @user.save!
+      @user.email.should eq("user@example.com")
+    }
+  end
 
-  #What's going on here??
-  #it { should be_valid }
+  describe "standard user should be valid with proper email, password, name etc" do
+    it { should be_valid }
+  end
 
   describe "when name is not present" do
     before {@user.name = " "}
@@ -85,38 +95,6 @@ describe User do
     it { should be_invalid }
   end
 
-  #describe "return value of authenticate method" do
-  #  before { @user.save! }
-  #  let(:found_user) { User.find_by(email: @user.email) }
-  #
-  #  describe "with valid password" do
-  #    it { should eq found_user.authenticate(@user.password) }
-  #  end
-  #
-  #  describe "with invalid password" do
-  #    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-  #
-  #    it { should_not eq user_for_invalid_password }
-  #    specify { expect(user_for_invalid_password).to be_false }
-  #  end
-  #end
-
-  #describe "return value of authenticate method" do
-  #  before { @user.save! }
-  #  let(:found_user) { User.find_by_email(@user.email) }
-  #
-  #  describe "with valid password" do
-  #    it { should == found_user.authenticate(@user.password) }
-  #  end
-  #
-  #  describe "with invalid password" do
-  #    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-  #
-  #    it { should_not == user_for_invalid_password }
-  #    specify { user_for_invalid_password.should be_false }
-  #  end
-  #end
-
   describe "return value of authenticate method with valid" do
     before { @user.save! }
     let(:found_user) { User.find_by_email(@user.email) }
@@ -129,6 +107,7 @@ describe User do
   describe "return value of authenticate method with invalid" do
       before { @user.save! }
       let(:found_user) { User.find_by_email(@user.email) }
+      #@found_user = User.find_by_email(@user.email)
 
       describe "with invalid password" do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }

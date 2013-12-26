@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: mostly_static_pages
+  database: mostly_static_pages_prod
   pool: 5
-  username: mostly_static_pages
+  username: mostly_static_pages_prod
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,15 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: mostly_static_pages
+  database: mostly_static_pages_test
   pool: 5
-  username: mostly_static_pages
+  username: mostly_static_pages_test
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: mostly_static_pages
+  database: mostly_static_pages_prod
   pool: 5
-  username: mostly_static_pages
+  username: mostly_static_pages_prod
   password:
