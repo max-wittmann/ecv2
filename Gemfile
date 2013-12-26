@@ -56,3 +56,7 @@ group :test do
   gem 'rb-fsevent', :require => false
   gem 'growl'
 end
+
+gem 'bootstrap-sass'
+
+gem 'bcrypt-ruby'
