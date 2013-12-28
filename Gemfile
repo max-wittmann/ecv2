@@ -60,3 +60,7 @@ end
 gem 'bootstrap-sass'
 
 gem 'bcrypt-ruby'
+
+group :test do
+	gem 'factory_girl_rails'
+end

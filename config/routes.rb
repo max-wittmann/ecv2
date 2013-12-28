@@ -1,10 +1,11 @@
 MostlyStaticPages::Application.routes.draw do
-  get "users/new"
+  #get "users/new"
   #get "static_pages/home"
   #get "static_pages/help"
   #get "static_pages/about"
   #get "static_pages/contact"
 
+  resources :users
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/home',    to: 'static_pages#home',    via: 'get'
