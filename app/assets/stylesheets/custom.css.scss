@@ -172,3 +172,24 @@ footer
     @extend .control-group;
     @extend .error;
   }
+
+  .basicform {
+    label
+    {
+      display: block;
+    }
+
+    input
+    {
+      display: block;
+    }
+
+    .submitbtn
+    {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+
+    padding-top: 10px;
+    padding-bottom: 10px
+  }
