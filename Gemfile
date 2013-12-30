@@ -64,3 +64,9 @@ gem 'bcrypt-ruby'
 group :test do
 	gem 'factory_girl_rails'
 end
+
+gem 'faker'
+
+gem 'will_paginate', '3.0.4'
+
+gem 'bootstrap-will_paginate', '0.0.9'
